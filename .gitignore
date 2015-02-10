@@ -41,3 +41,12 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.suo
+*.tlog
+*.log
+*.pch
+*.obj
+*.pdb
+Win32/Debug/Quiz.exe
+*.ilk
+Quiz/GeneratedFiles/Debug/moc_NetworkControl.cpp

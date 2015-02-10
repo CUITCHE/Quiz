@@ -35,6 +35,11 @@ private:
 	QPushButton *nextBtn;		//后一道题
 	QPushButton *submitBtn;		//提交当前题目
 	QPushButton *resetBtn;		//重置输入框
+	QLabel *lastWriteLable;		//last write label;
+	QTextEdit *lastWriteEdit;	//last write edit;
+	QLabel *commentLable;		//comment lable
+	QTextEdit *commentEdit;		//comment 显示框
+	QLabel *nowChapterTottal;	//当前chapter共有n个subject，当前是第m个subject
 	unique_ptr<QVBoxLayout> mainLayout;
 };
 

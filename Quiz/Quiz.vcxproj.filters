@@ -34,6 +34,9 @@
       <Extensions>ui</Extensions>
       <ParseFiles>true</ParseFiles>
     </Filter>
+    <Filter Include="packets">
+      <UniqueIdentifier>{25d5d67d-3a43-4dc8-ace6-fafe9fc357b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,15 +54,48 @@
     <ClCompile Include="DBEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_NetworkControl.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QuizWidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="NetworkControl.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DBEngine.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="packets\LoginPacket.hpp">
+      <Filter>packets</Filter>
+    </ClInclude>
+    <ClInclude Include="packets\Packet.hpp">
+      <Filter>packets</Filter>
+    </ClInclude>
+    <ClInclude Include="packets\TestRequestPacket.hpp">
+      <Filter>packets</Filter>
+    </ClInclude>
+    <ClInclude Include="packets\CommitPacket.hpp">
+      <Filter>packets</Filter>
+    </ClInclude>
+    <ClInclude Include="packets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="packets\ConfirmationPacket.hpp">
+      <Filter>packets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
