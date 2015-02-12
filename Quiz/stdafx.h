@@ -1,4 +1,6 @@
+#pragma once
 #include <QMessageBox>
 #include <QDebug>
-class NetworkControl;
-extern NetworkControl* g_networkControl;
+#include "TerminalControl.h"
+class TerminalControl;
+extern TerminalControl* g_terminalControl;

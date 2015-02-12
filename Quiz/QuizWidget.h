@@ -1,8 +1,11 @@
 #ifndef QUIZWIDGET_H
 #define QUIZWIDGET_H
 
+#include "structdefs.h"
 #include <QWidget>
 #include <memory>
+#include <QList>
+#include <QMap>
 using namespace std;
 class QLabel;
 class QPushButton;
@@ -16,6 +19,10 @@ class QuizWidget : public QWidget
 public:
 	QuizWidget(QWidget *parent = 0);
 	~QuizWidget();
+	//从服务器获得测试卷数据
+	void getTestData(const QString &title, const QVariantList &c, const QVariantList &s);
+	//设置user id
+	void setUserId(int id){ usrId = id; }
 protected slots:
 	void forwardBtnClicked();
 	void nextBtnClicked();
@@ -41,6 +48,12 @@ private:
 	QTextEdit *commentEdit;		//comment 显示框
 	QLabel *nowChapterTottal;	//当前chapter共有n个subject，当前是第m个subject
 	unique_ptr<QVBoxLayout> mainLayout;
+	QList<shared_ptr<ChapterData>> chapters;
+	QList<shared_ptr<SubjectData >> subjects;
+	QMap<int, QList<shared_ptr<SubjectData>>> c_s_mapper;		//章节id映射subject
+	QList<shared_ptr<SubjectData>> currentSelectChapter;		//当前选择的章的所有题目
+	int pointer_subject;							//题目指针。
+	int usrId;
 };
 
 #endif // QUIZWIDGET_H

@@ -8,6 +8,7 @@ class QLabel;
 class QPushButton;
 class QVBoxLayout;
 class QLineEdit;
+
 class LoginWidget : public QWidget
 {
 	Q_OBJECT
@@ -15,10 +16,12 @@ class LoginWidget : public QWidget
 public:
 	LoginWidget(QWidget *parent);
 	~LoginWidget();
+	void loginSuccess(int success, QWidget *otherWidget);
 protected:
 	QVBoxLayout* iniWidget();
-protected slots:
+public slots :
 	void confirmBtnClicked();
+	void tipLabelSetText(const QString &text);
 private:
 	unique_ptr<QVBoxLayout> mainLayout;
 	QLabel *userNameLabel;
@@ -27,6 +30,7 @@ private:
 	QLineEdit *loginCodeInput;
 	QPushButton *closeBtn;
 	QPushButton *confirmBtn;
+	QLabel *tipLabel;
 };
 
 #endif // LOGINWIDGET_H

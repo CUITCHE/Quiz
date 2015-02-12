@@ -109,20 +109,82 @@ QVBoxLayout* QuizWidget::initWidget()
 
 void QuizWidget::forwardBtnClicked()
 {
-
+	if (nextBtn->isEnabled() == false){
+		nextBtn->setEnabled(true);
+	}
+	--pointer_subject;
+	if (pointer_subject < 0){
+		nextBtn->setEnabled(true);
+		forwardBtn->setEnabled(false);
+		++pointer_subject;
+		return;
+	}
+	subjectText->setText(currentSelectChapter.at(pointer_subject)->script);
 }
 
 void QuizWidget::nextBtnClicked()
 {
-
+	if (forwardBtn->isEnabled() == false){
+		forwardBtn->setEnabled(true);
+	}
+	++pointer_subject;
+	if (pointer_subject >= currentSelectChapter.size()){
+		forwardBtn->setEnabled(true);
+		nextBtn->setEnabled(false);
+		--pointer_subject;
+		return;
+	}
+	subjectText->setText(currentSelectChapter.at(pointer_subject)->script);
 }
 
 void QuizWidget::resetBtnClicked()
 {
-
+	inputEdit->clear();
 }
 
 void QuizWidget::submitBtnClicked()
 {
+	QString text = inputEdit->toPlainText();
+	int subjectData = chapterCombo->currentData().toInt();
+	g_terminalControl->Commit(usrId, subjectData, text);
+}
 
+void QuizWidget::getTestData(const QString &title, const QVariantList &c, const QVariantList &s)
+{
+	themeLabel->setText(title);
+	QVariantList::const_iterator iter_begin = c.begin(), iter_end = c.end();
+	shared_ptr<ChapterData> d;
+	while (iter_begin != iter_end){
+		d.reset(new ChapterData);
+		d->id = (*iter_begin++).toInt();
+		d->script = (*iter_begin++).toString();
+		chapters.push_back(d);
+		c_s_mapper.insert(d->id, QList<shared_ptr<SubjectData>>());
+	}
+
+	iter_begin = s.begin();
+	iter_end = s.end();
+
+	{
+		shared_ptr<SubjectData> d;
+		while (iter_begin != iter_end){
+			d.reset(new SubjectData);
+			d->id = (*iter_begin++).toInt();
+			d->fk_chapter = (*iter_begin++).toInt();
+			d->script = (*iter_begin++).toString();
+			d->score = (*iter_begin++).toInt();
+			subjects.push_back(d);
+			c_s_mapper[d->fk_chapter].push_back(subjects.last());
+		}
+	}
+	for each(auto &val in chapters){
+		//user data设为chapter的id
+		chapterCombo->addItem(val->script,val->id);
+	}
+	//设置comboBox
+	chapterCombo->setCurrentIndex(0);
+	currentSelectChapter = c_s_mapper.value(chapters.first()->id);
+	pointer_subject = 0;
+	subjectText->setText(currentSelectChapter.at(pointer_subject)->script);
+	forwardBtn->setEnabled(false);
 }

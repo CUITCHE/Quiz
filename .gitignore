@@ -50,3 +50,7 @@ Temporary Items
 Win32/Debug/Quiz.exe
 *.ilk
 Quiz/GeneratedFiles/Debug/moc_NetworkControl.cpp
+*.db
+*.db
+*.db
+*.docx

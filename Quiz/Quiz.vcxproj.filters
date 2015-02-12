@@ -37,6 +37,9 @@
     <Filter Include="packets">
       <UniqueIdentifier>{25d5d67d-3a43-4dc8-ace6-fafe9fc357b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="thread">
+      <UniqueIdentifier>{7a24600f-a79e-4be6-9fe2-475a8ac52f2e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,6 +75,24 @@
     <ClCompile Include="GeneratedFiles\Release\moc_LoginWidget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="TerminalControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TerminalControl.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TerminalControl.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="thread\ReconnectThread.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ReconnectThread.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ReconnectThread.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QuizWidget.h">
@@ -82,6 +103,12 @@
     </CustomBuild>
     <CustomBuild Include="LoginWidget.h">
       <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TerminalControl.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="thread\ReconnectThread.h">
+      <Filter>thread</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +135,9 @@
     </ClInclude>
     <ClInclude Include="packets\ConfirmationPacket.hpp">
       <Filter>packets</Filter>
+    </ClInclude>
+    <ClInclude Include="structdefs.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

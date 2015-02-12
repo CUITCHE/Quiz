@@ -1,8 +1,6 @@
 #pragma execution_character_set("utf-8")
 #include "stdafx.h"
-#include "QuizWidget.h"
-#include "DBEngine.h"
-#include "packets/LoginPacket.hpp"
+#include "TerminalControl.h"
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
@@ -13,7 +11,7 @@ int main(int argc, char *argv[])
 // 	auto res = pac.parse();
 // 	auto json = QJsonDocument::fromVariant(res);
 // 	qDebug() << json.toJson();
-	QuizWidget w;
-	w.show();
+	unique_ptr<TerminalControl> kernel(new TerminalControl(nullptr));
+	kernel->start();
 	return a.exec();
 }
